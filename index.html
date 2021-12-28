@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Js Project 1</title>
+</head>
+<body>
+    <nav>
+        <div class="nav">
+            <h3>Color flipper</h3>
+            <ul>
+                <li><a href="index.html">Simple </a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+        <h1>Background Color : <span id="bkgrnd">#F15025</span></h1>
+        <button id="btn">click me (Normal Color)</button>
+        <button id="Hexbtn">click me (Hex Color)</button>
+        </div>
+
+    </main>
+<script>
+    color = ["Red","Green","Yellow","Pink","Gray","Orange","purple","Blue","White","Lightblue"];
+    const hexColor = [1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+    const btn = document.getElementById("btn");
+    const Hexbtn = document.getElementById("Hexbtn");
+    const body = document.getElementsByTagName("main")[0];
+    const colorName = document.getElementById("bkgrnd");
+
+    btn.addEventListener("click",function(){
+        let i = Math.floor(Math.random() * color.length);
+        colorName.innerText = color[i];
+        body.style.backgroundColor = color[i];
+    })
+
+    Hexbtn.addEventListener("click",function(){
+        console.log("Clicked");
+        var char = "#";
+        for(let j = 0;j<6;j++){
+            char +=  hexColor[Math.floor(Math.random() * hexColor.length)];
+        }
+        colorName.innerText = char;
+        body.style.backgroundColor = char;
+    })
+</script>
+</body>
+</html>
